@@ -19,6 +19,6 @@ AsyncStorage AsyncStorage存储API（用的react-native-storage模块写的DEMO�
 请在项目中：npm install react-native-storage --save <br >
 注意：请勿使用require('react-native-storage')语法, 否则在react native 0.16版本中会报错. <br >
 
-https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/img.png
+<img src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/img.png" />
 
 根据API 自己写的一些DEMO（持续更新中。。。欢迎收藏）
