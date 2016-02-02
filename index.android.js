@@ -10,9 +10,7 @@ var TabBarView = require('./Application/View/TabBar');
 var LayoutView = require('./Application/Test/Layout');
 
 /*API Test*/
-var ActionSheelIOS = require('./Application/Test/ActionSheelIOS');
 var Alert = require('./Application/Test/Alert');
-var AlertIOS = require('./Application/Test/AlertIOS');
 var Animated = require('./Application/Test/Animated');
 
 var {

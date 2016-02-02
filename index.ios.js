@@ -14,6 +14,7 @@ var ActionSheelIOS = require('./Application/Test/ActionSheelIOS');
 var Alert = require('./Application/Test/Alert');
 var AlertIOS = require('./Application/Test/AlertIOS');
 var Animated = require('./Application/Test/Animated');
+var AppStateIOS = require('./Application/Test/AppStateIOS');
 
 var {
     AppRegistry,
@@ -23,7 +24,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <Animated />
+            <AppStateIOS />
         );
     }
 
