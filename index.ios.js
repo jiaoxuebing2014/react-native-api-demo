@@ -15,6 +15,7 @@ var Alert = require('./Application/Test/Alert');
 var AlertIOS = require('./Application/Test/AlertIOS');
 var Animated = require('./Application/Test/Animated');
 var AppStateIOS = require('./Application/Test/AppStateIOS');
+var AsyncStorage = require('./Application/Test/AsyncStorage');
 
 var {
     AppRegistry,
@@ -24,7 +25,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <AppStateIOS />
+            <AsyncStorage />
         );
     }
 

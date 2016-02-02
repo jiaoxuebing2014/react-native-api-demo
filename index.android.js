@@ -12,6 +12,7 @@ var LayoutView = require('./Application/Test/Layout');
 /*API Test*/
 var Alert = require('./Application/Test/Alert');
 var Animated = require('./Application/Test/Animated');
+var AsyncStorage = require('./Application/Test/AsyncStorage');
 
 var {
     AppRegistry,
@@ -21,7 +22,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <Animated />
+            <AsyncStorage />
         );
     }
 
