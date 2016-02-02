@@ -12,4 +12,6 @@ AlertIOS 弹窗组件IOS
 
 Animated Animated动画API
 
+AppStateIOS AppStateIOS状态API
+
 根据API 自己写的一些DEMO（持续更新中。。。欢迎收藏）
