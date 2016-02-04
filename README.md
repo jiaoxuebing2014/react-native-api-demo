@@ -39,8 +39,11 @@
 
 ####PanResponder PanResponder类可以将多点触摸操作协调成一个手势。它使得一个单点触摸可以接受更多的触摸操作，也可以用于识别简单的多点触摸手势。	 <br />
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5096.PNG" /> 	<br />
-
+   
 ####VibrationIOS 控制设备震动	 <br />
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5098.PNG" /> 	<br />
+
+####Geolocation 获取地理位置	 <br />
+<img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5100.PNG" /> 	<br />
 
 

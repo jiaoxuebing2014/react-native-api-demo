@@ -21,6 +21,7 @@ var NativeMethodsMixin = require('./Application/Test/NativeMethodsMixin');
 var NetInfo = require('./Application/Test/NetInfo');
 var PanResponder = require('./Application/Test/PanResponder');
 var VibrationIOS = require('./Application/Test/VibrationIOS');
+var Geolocation = require('./Application/Test/Geolocation');
 
 var {
     AppRegistry,
@@ -30,7 +31,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <PanResponder />
+            <Geolocation />
         );
     }
 
