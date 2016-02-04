@@ -19,7 +19,6 @@ var {
 var PanResponderComponent = React.createClass({
     getInitialState: function(){
         return {
-            color:'blue',
             gestureState: '',
         };
     },
@@ -27,7 +26,7 @@ var PanResponderComponent = React.createClass({
     _previousLeft: 0,
     _previousTop: 0,
     _circleStyles: {},
-    circle: (null : ?{ setNativeProps(props: Object): void }),//不懂这句-_-  可以直接为null
+    circle: {},
     componentWillMount: function(){
         this._panResponder = PanResponder.create({
             // 要求成为响应者： return true
@@ -81,7 +80,7 @@ var PanResponderComponent = React.createClass({
                     ref={(circle) => {
                         this.circle = circle;
                     }}
-                    style={[styles.moveBox,{backgroundColor:this.state.color}]}
+                    style={styles.moveBox}
                     {...this._panResponder.panHandlers}>
                 </View>
                 <Text style={styles.state}>gestureState信息： {this.state.gestureState}</Text>
@@ -138,6 +137,7 @@ var styles = StyleSheet.create({
         height: 80,
         borderRadius: 40,
         position: 'absolute',
+        backgroundColor: 'blue',
     },
     state: {
         position: 'absolute',
