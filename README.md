@@ -30,4 +30,17 @@
 注意：请勿使用require('react-native-storage')语法, 否则在react native 0.16版本中会报错. <br > 
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5083.PNG" /> 	<br />
 
+####CameraRoll 未完成
+
+####NativeMethodsMixin 未完成
+
+####NetInfo NetInfo网络API	 <br />
+<img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5097.PNG" /> 	<br />
+
+####PanResponder PanResponder类可以将多点触摸操作协调成一个手势。它使得一个单点触摸可以接受更多的触摸操作，也可以用于识别简单的多点触摸手势。	 <br />
+<img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5096.PNG" /> 	<br />
+
+####VibrationIOS 控制设备震动	 <br />
+<img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5098.PNG" /> 	<br />
+
 

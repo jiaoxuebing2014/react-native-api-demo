@@ -13,6 +13,10 @@ var LayoutView = require('./Application/Test/Layout');
 var Alert = require('./Application/Test/Alert');
 var Animated = require('./Application/Test/Animated');
 var AsyncStorage = require('./Application/Test/AsyncStorage');
+var CameraRoll = require('./Application/Test/CameraRoll');
+var NativeMethodsMixin = require('./Application/Test/NativeMethodsMixin');
+var NetInfo = require('./Application/Test/NetInfo');
+var PanResponder = require('./Application/Test/PanResponder');
 
 var {
     AppRegistry,
@@ -22,7 +26,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <AsyncStorage />
+            <PanResponder />
         );
     }
 
