@@ -1,5 +1,5 @@
 # react-native-api-demo
-#####根据API 自己写的一些DEMO（持续更新中。。。欢迎收藏）
+#####根据API 写的一些DEMO（持续更新中。。。欢迎收藏）
 
 ####API DEMO 目录: \Application\Test<br />
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/help.png" /> <br />
