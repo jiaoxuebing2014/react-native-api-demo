@@ -46,6 +46,7 @@ var StatusBarIOSComponent = React.createClass({
         }
     },
     render: function(){
+        StatusBarIOS.setStyle('light-content');
         return (
             <View style={styles.wrap}>
                 <View style={styles.head}>
