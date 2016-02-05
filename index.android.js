@@ -27,7 +27,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <Geolocation />
+            <LayoutView />
         );
     }
 

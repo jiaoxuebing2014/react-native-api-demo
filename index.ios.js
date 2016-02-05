@@ -32,7 +32,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <AsyncStorage />
+            <LayoutView />
         );
     }
 
