@@ -67,7 +67,6 @@ var ActionSheelIOSComponect = React.createClass({
     },
     
     render: function(){
-        alert('渲染')
         return (
             <View style={styles.wrap}>
                 <View style={styles.options}>

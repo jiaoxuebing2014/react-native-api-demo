@@ -3,6 +3,7 @@
 
 ####API DEMO 目录: \Application\Test<br />
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/help.png" /> <br />
+<img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5102.PNG" />    <br />
 
 ####Layout 布局<br />
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5085.PNG" /> 

@@ -211,8 +211,7 @@ var Layout = React.createClass({
 
 var styles = StyleSheet.create({
     mainView:{
-        marginTop: 20,
-        marginBottom: 20,
+        
     },
     title:{
         marginTop:20,

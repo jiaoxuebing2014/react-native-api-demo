@@ -115,9 +115,6 @@ var AsyncStorageComponect = React.createClass({
     render: function(){
         return (
             <View style={styles.wrap}>
-                <View style={styles.head}>
-                    <Text style={{color:'#fff'}}>头部</Text>
-                </View>
                 <ScrollView automaticallyAdjustContentInsets={false} style={{height:350}}>
                     {this.state.init.map((value,key)=>
                         <View style={styles.li} key={key}>
@@ -146,13 +143,6 @@ var AsyncStorageComponect = React.createClass({
 var styles = StyleSheet.create({
     wrap: {
         
-    },
-    head: {
-        paddingTop: 20,
-        height: 64,
-        backgroundColor: '#230e7b',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     li: {
         height: 110,

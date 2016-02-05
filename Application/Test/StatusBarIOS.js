@@ -49,9 +49,6 @@ var StatusBarIOSComponent = React.createClass({
         StatusBarIOS.setStyle('light-content');
         return (
             <View style={styles.wrap}>
-                <View style={styles.head}>
-                    <Text style={styles.headtxt}>头部</Text>
-                </View>
                 <View style={styles.li} ref="li1" onTouchStart={this.siliderfn.bind(this,'li1')}>
                     <View style={styles.button} ref={(e)=>{this.active['li1'] = e}}><Text style={styles.buttontxt}>状态栏样式</Text></View>
                     <View style={styles.buttonnextwrap} ref={(e)=>{this.upheight['li1'] = e}}>
@@ -93,14 +90,7 @@ var StatusBarIOSComponent = React.createClass({
 
 var styles = StyleSheet.create({
     wrap: {
-        
-    },
-    head: {
-        paddingTop: 20,
-        height: 64,
-        backgroundColor: 'blue',
-        alignItems: 'center',
-        justifyContent: 'center',
+        paddingTop: 44,
     },
     headtxt: {
         color:'#fff',
