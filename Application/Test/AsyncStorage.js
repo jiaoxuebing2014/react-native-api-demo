@@ -11,6 +11,7 @@ import Storage from 'react-native-storage';
 var {
     AsyncStorage,
     StyleSheet,
+    ScrollView,
     View,
     Text,
     Image,
@@ -49,21 +50,22 @@ var AsyncStorageComponect = React.createClass({
         var self = this;
         storage.sync = {
             newList(){
-                fetch('https://randomuser.me/api/')
+                self.setState({buttontxt:'重新请求数据中...'});
+                fetch('http://88.studyteam.sinaapp.com/rnn/news_list.json')
                 .then( result => {
-                    return result.json();
+                    return result.json(); 
                 })
                 .then( json => {
                     if(json){
                         self.setState({
-                            init: json.results,
+                            init: json,
                             buttontxt: '清除本地数据',
                             ispost: false,
                             isacitve: false,
                         });
                         storage.save({
                             key: 'newList',
-                            rawData: json.results,
+                            rawData: json,
                             expires: 1000*3600
                         });
                     }else{
@@ -116,21 +118,23 @@ var AsyncStorageComponect = React.createClass({
                 <View style={styles.head}>
                     <Text style={{color:'#fff'}}>头部</Text>
                 </View>
-                {this.state.init.map((value,key)=>
-                    <View style={styles.li} key={key}>
-                        <View style={styles.lileft}>
-                            <Image style={styles.image} source={{uri:value.user.picture.large}} />
-                            <View style={styles.alt}>
-                                <Text style={styles.alttext}>{value.user.gender}</Text>
+                <ScrollView automaticallyAdjustContentInsets={false} style={{height:350}}>
+                    {this.state.init.map((value,key)=>
+                        <View style={styles.li} key={key}>
+                            <View style={styles.lileft}>
+                                <Image style={styles.image} source={{uri:value.pic}} />
+                                <View style={styles.alt}>
+                                    <Text style={styles.alttext}>{value.id}</Text>
+                                </View>
+                            </View>
+                            <View style={styles.liright}>
+                                <View style={styles.h1}><Text style={styles.h1text}>{value.title}</Text></View>
+                                <View style={styles.dec}><Text style={styles.dectext}>{value.summary}</Text></View>
+                                <View style={styles.cet}><Text style={styles.cettext}>{value.title}</Text></View> 
                             </View>
                         </View>
-                        <View style={styles.liright}>
-                            <View style={styles.h1}><Text style={styles.h1text}>{value.user.name.title}</Text></View>
-                            <View style={styles.dec}><Text style={styles.dectext}>{value.user.location.street}</Text></View>
-                            <View style={styles.cet}><Text style={styles.cettext}>{value.user.username}</Text></View>
-                        </View>
-                    </View>
-                )}
+                    )}
+                </ScrollView>
                 <View style={[styles.button,this.state.isacitve&&styles.buttoncurrent]} onTouchEnd={this.cleardata} onTouchStart={()=>this.setState({isacitve:true})}>
                     <Text style={styles.buttontext}>{this.state.buttontxt}</Text>
                 </View>
