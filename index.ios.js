@@ -22,6 +22,7 @@ var NetInfo = require('./Application/Test/NetInfo');
 var PanResponder = require('./Application/Test/PanResponder');
 var VibrationIOS = require('./Application/Test/VibrationIOS');
 var Geolocation = require('./Application/Test/Geolocation');
+var StatusBarIOS = require('./Application/Test/StatusBarIOS');
 
 var {
     AppRegistry,
@@ -31,7 +32,7 @@ var NV = React.createClass({
 
     render : function() {
         return (
-            <Geolocation />
+            <StatusBarIOS />
         );
     }
 

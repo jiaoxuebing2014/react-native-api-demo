@@ -46,4 +46,7 @@
 ####Geolocation 获取地理位置	 <br />
 <img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5100.PNG" /> 	<br />
 
+####StatusBarIOS IOS状态栏	 <br />
+<img width="280" src="https://raw.githubusercontent.com/jiaoxuebing2014/react-native-api-demo/master/Application/Img/help/IMG_5101.PNG" /> 	<br />
+
 
