@@ -75,7 +75,7 @@ var PanResponderComponent = React.createClass({
     },
     render: function(){
         return (
-            <View style={{width: width,height: height}}>
+            <View style={{width: width,height: height-64}}>
                 <View 
                     ref={(circle) => {
                         this.circle = circle;

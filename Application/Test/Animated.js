@@ -28,43 +28,51 @@ var AnimatedComponent = React.createClass({
         };
     },
     fadeIn: function(){
+        var arim = Animated.spring;
         this.setState({
             marginLeft:0
         });
-        Animated.timing(
-            this.state.opacity,
-            {
-                toValue: 0.8,
-            }
-        ).start();
-        Animated.timing(
-            this.state.size,
-            {
-                toValue: 200,
-            }
-        ).start();
+        Animated.parallel([
+            arim(
+                this.state.opacity,
+                {
+                    toValue: 0.8,
+                }
+            ),
+            arim(
+                this.state.size,
+                {
+                    toValue: 200,
+                }
+            ),
+        ]).start();
+        
     },
     fadeOut: function(){
         var self = this;
+        var arim = Animated.timing;
         self.setState({
             istouchstart: false,
         });
-        Animated.timing(
-            this.state.opacity,
-            {
-                toValue: 0,
-            }
-        ).start(function(){
+        Animated.parallel([
+            arim(
+                this.state.opacity,
+                {
+                    toValue: 0,
+                }
+            ),
+            arim(
+                this.state.size,
+                {
+                    toValue: 0,
+                }
+            ),
+        ]).start(function(){
             self.setState({
                 marginLeft:-width,
             });
         });
-        Animated.timing(
-            this.state.size,
-            {
-                toValue: 0,
-            }
-        ).start();
+        
     },
     touchstartfn: function(){
         this.setState({
@@ -93,6 +101,7 @@ var styles = StyleSheet.create({
         flex:1,
         flexDirection: 'column',
         paddingTop: 100,
+        overflow: 'hidden',
     },
     button: {
         height: 44,

@@ -24,6 +24,13 @@ var VibrationIOSView = require('./VibrationIOS');
 var GeolocationView = require('./Geolocation');
 var StatusBarIOSView = require('./StatusBarIOS');
 
+/*官网 DEMO动画*/
+var AnExApp = require('./AnExApp');
+var AnExBobble = require('./AnExBobble');
+var AnExChained = require('./AnExChained');
+var AnExScroll = require('./AnExScroll');
+var AnExTilt = require('./AnExTilt');
+
 var ApiDemo = [
     <LayoutView />,
     <ActionSheelIOSView />,
@@ -39,6 +46,11 @@ var ApiDemo = [
     <VibrationIOSView />,
     <GeolocationView />,
     <StatusBarIOSView />,
+    <AnExApp />,
+    <AnExBobble />,
+    <AnExChained />,
+    <AnExScroll />,
+    <AnExTilt />, 
 ];
 
 var ApiDemoText = [
@@ -56,6 +68,11 @@ var ApiDemoText = [
     'VibrationIOS 控制设备震动',
     'Geolocation 获取地理位置',
     'StatusBarIOS IOS状态栏',
+    '<AnExApp />',
+    '<AnExBobble />',
+    '<AnExChained />',
+    '<AnExScroll />',
+    '<AnExTilt />', 
 ];
 
 var {
@@ -82,45 +99,54 @@ var NavComponent = React.createClass({
             pageDemo: null,
             homeLeft: new Animated.Value(0),
             detailLeft: new Animated.Value(width),
+            detailtitle: null,
         };
     },
     componentDidMount: function(){
         StatusBarIOS.setStyle('light-content');
     },
-    goDetailPage: function(i){
+    goDetailPage: function(i,title){
+        var timing = Animated.timing;
         this.setState({
-            pageDemo: ApiDemo[i]       
+            pageDemo: ApiDemo[i],
+            detailtitle:title,
         });
-        Animated.timing(
-            this.state.homeLeft,
-            {
-                toValue: -width,
-                duration: 500,
-            }
-        ).start();
-        Animated.timing(
-            this.state.detailLeft,
-            {
-                toValue: 0,
-                duration: 300,
-            }
-        ).start();
+        Animated.parallel([
+            timing(
+                this.state.homeLeft,
+                {
+                    toValue: -width,
+                    duration: 500,
+                }
+            ),
+            timing(
+                this.state.detailLeft,
+                {
+                    toValue: 0,
+                    duration: 300,
+                }
+            ),
+        ]).start();
+        
     },
     backHome: function(){
-        Animated.timing(
-            this.state.homeLeft,
-            {
-                toValue: 0,
-                duration: 300,
-            }
-        ).start();
-        Animated.timing(
-            this.state.detailLeft,
-            {
-                toValue: width,
-                duration: 350,
-            }
-        ).start();
+        var timing = Animated.timing;
+        Animated.parallel([
+            timing(
+                this.state.homeLeft,
+                {
+                    toValue: 0,
+                    duration: 300,
+                }
+            ),
+            timing(
+                this.state.detailLeft,
+                {
+                    toValue: width,
+                    duration: 350,
+                }
+            ),
+        ]).start();
     },
     render: function(){
         var icon = require('../Img/icon/arrow3.png');
@@ -131,12 +157,12 @@ var NavComponent = React.createClass({
                     <View style={styles.head}><Text style={styles.headtxt}>React Native API Demo</Text></View>
                     <ScrollView style={styles.list} automaticallyAdjustContentInsets={false}>
                         {ApiDemo.map((v,i)=>
-                            <TouchableOpacity key={i} style={styles.button} onPress={this.goDetailPage.bind(this,i)}><Text style={styles.buttontxt}>{(i+1)+'、'+ApiDemoText[i]}</Text><Image style={styles.icon} source={icon} /></TouchableOpacity>
+                            <TouchableOpacity key={i} style={styles.button} onPress={this.goDetailPage.bind(this,i,ApiDemoText[i])}><Text style={styles.buttontxt}>{(i+1)+'、'+ApiDemoText[i]}</Text><Image style={styles.icon} source={icon} /></TouchableOpacity>
                         )}
                     </ScrollView>
                 </Animated.View>
                 <Animated.View style={[styles.wrap,styles.detail,{left:this.state.detailLeft}]}>
-                    <View style={styles.head}><TouchableOpacity style={styles.back} onPress={this.backHome}><Image style={styles.backicon} source={back} /><Text style={styles.headtxt}>返回</Text></TouchableOpacity><Text style={styles.headtxt}>详情</Text></View>
+                    <View style={styles.head}><TouchableOpacity style={styles.back} onPress={this.backHome}><Image style={styles.backicon} source={back} /><Text style={styles.headtxt}>返回</Text></TouchableOpacity><Text style={styles.headtxt}>{this.state.detailtitle}</Text></View>
                     <View style={styles.list} automaticallyAdjustContentInsets={false}>
                         {this.state.pageDemo}
                     </View>

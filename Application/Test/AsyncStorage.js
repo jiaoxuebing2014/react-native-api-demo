@@ -10,6 +10,7 @@ import Storage from 'react-native-storage';
 
 var {
     AsyncStorage,
+    InteractionManager,
     StyleSheet,
     ScrollView,
     View,
@@ -48,53 +49,57 @@ var AsyncStorageComponect = React.createClass({
     },
     componentDidMount: function(){
         var self = this;
-        storage.sync = {
-            newList(){
-                self.setState({buttontxt:'重新请求数据中...'});
-                fetch('http://88.studyteam.sinaapp.com/rnn/news_list.json')
-                .then( result => {
-                    return result.json(); 
-                })
-                .then( json => {
-                    if(json){
-                        self.setState({
-                            init: json,
-                            buttontxt: '清除本地数据',
-                            ispost: false,
-                            isacitve: false,
-                        });
-                        storage.save({
-                            key: 'newList',
-                            rawData: json,
-                            expires: 1000*3600
-                        });
-                    }else{
-                        // 失败则调用
-                        console.warn('数据异常');
-                    }
-                })
-                .catch( err => {
-                    console.warn(err);
-                });
-            }
-        };
-        storage.load({
-            key: 'newList',
-            //autoSync(默认为true)意味着在没有找到数据或数据过期时自动调用相应的同步方法
-            autoSync: true,
+        
+        /*Interactionmanager可以将一些耗时较长的工作安排到所有互动或动画完成之后再进行。这样可以保证JavaScript动画的流畅运行。*/
+        InteractionManager.runAfterInteractions(() => {
+            storage.sync = {
+                newList(){
+                    self.setState({buttontxt:'重新请求数据中...'});
+                    fetch('http://88.studyteam.sinaapp.com/rnn/news_list.json')
+                    .then( result => {
+                        return result.json(); 
+                    })
+                    .then( json => {
+                        if(json){
+                            self.setState({
+                                init: json,
+                                buttontxt: '清除本地数据',
+                                ispost: false,
+                                isacitve: false,
+                            });
+                            storage.save({
+                                key: 'newList',
+                                rawData: json,
+                                expires: 1000*3600
+                            });
+                        }else{
+                            // 失败则调用
+                            console.warn('数据异常');
+                        }
+                    })
+                    .catch( err => {
+                        console.warn(err);
+                    });
+                }
+            };
+            storage.load({
+                key: 'newList',
+                //autoSync(默认为true)意味着在没有找到数据或数据过期时自动调用相应的同步方法
+                autoSync: true,
 
-            //syncInBackground(默认为true)意味着如果数据过期，
-            //在调用同步方法的同时先返回已经过期的数据。
-            //设置为false的话，则始终强制返回同步方法提供的最新数据(当然会需要更多等待时间)。
-            syncInBackground: true
-        }).then(ret=>{
-            self.setState({
-                init: ret
+                //syncInBackground(默认为true)意味着如果数据过期，
+                //在调用同步方法的同时先返回已经过期的数据。
+                //设置为false的话，则始终强制返回同步方法提供的最新数据(当然会需要更多等待时间)。
+                syncInBackground: true
+            }).then(ret=>{
+                self.setState({
+                    init: ret
+                });
+            }).catch( err => {
+                //如果没有找到数据且没有同步方法，
+                //或者有其他异常，则在catch中返回
+                console.warn(err);
             });
-        }).catch( err => {
-            //如果没有找到数据且没有同步方法，
-            //或者有其他异常，则在catch中返回
-            console.warn(err);
         });
     },
     cleardata: function(){

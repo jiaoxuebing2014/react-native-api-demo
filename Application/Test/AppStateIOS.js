@@ -62,7 +62,7 @@ var AppStateIOSComponent = React.createClass({
     },
     render: function(){
         return (
-            <View style={{width:width,height:height,alignItems:'center',justifyContent:'center',backgroundColor:this.state.backgroundColor}}>
+            <View style={{width:width,height:height-64,alignItems:'center',justifyContent:'center',backgroundColor:this.state.backgroundColor}}>
                 <Text style={{color:'#fff',fontSize:20,paddingLeft:20,paddingRight:20}}>
                    {this.state.memoryWarnings} - {this.state.currentStateTt}
                 </Text>
